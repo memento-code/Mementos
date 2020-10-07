@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Mementos</string>
+    <string name="main_screen_tests">Психологические тесты</string>
+    <string name="title_activity_choice_psy_test">ChoicePsyTestActivity</string>
+</resources>
