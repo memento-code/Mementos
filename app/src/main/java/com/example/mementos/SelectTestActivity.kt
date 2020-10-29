@@ -3,10 +3,7 @@ package com.example.mementos
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.ArrayAdapter
 import android.widget.ListView
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 
 
 class SelectTestActivity : AppCompatActivity() {
@@ -16,13 +13,25 @@ class SelectTestActivity : AppCompatActivity() {
         setContentView(R.layout.activity_choice_psy_test)
         val listView = findViewById<ListView>(R.id.test_list_view)
 
-        val jsonFileString = getJsonDataFromAsset(this, "tests.json")
-        Log.i("data", jsonFileString)
-        val gson = Gson()
-        val listTestType = object : TypeToken<List<Test>>() {}.type
-        val listTests: List<Test> = gson.fromJson(jsonFileString, listTestType)
+        val controller = AppDBController(this)
+        val allTests = controller.select_all_tests()
+        val listItems = ArrayList<Test>()
 
-        val adapter = TestAdapter(this, listTests)
+        with(allTests!!){
+            while(moveToNext()){
+                listItems.add(
+                    Test(
+                        id = getInt(getColumnIndexOrThrow("id")),
+                        title = getString(getColumnIndexOrThrow("title")),
+                        question_cnt = getInt(getColumnIndexOrThrow("question_cnt")),
+                        time_spent_sec = getInt(getColumnIndexOrThrow("time_spent_sec")),
+                        type = getString(getColumnIndexOrThrow("type"))
+                    )
+                )
+            }
+        }
+
+        val adapter = TestAdapter(this, listItems)
         listView.adapter = adapter
     }
 }

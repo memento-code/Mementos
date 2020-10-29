@@ -37,8 +37,8 @@ class TestAdapter(private val context: Context,
         val typeImageTest =  rowView.findViewById(R.id.typeImageTest) as ImageView
 
         val test = getItem(position) as Test
-        countQuestionsTest.text = "${test.question_count} вопросов"
-        timeTest.text = "${test.time} минут"
+        countQuestionsTest.text = "${test.question_cnt} вопросов"
+        timeTest.text = "${test.time_spent_sec / 60} минут"
         titleTest.text = test.title
 
         when (test.type){
