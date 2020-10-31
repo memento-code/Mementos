@@ -19,8 +19,8 @@ open class AppDBController(context: Context) {
      * @return Курсор, содержащий все доступные тесты. Список колонок лежит в AppData.Test
      */
     fun select_all_tests(): Cursor? {
-        return sqLiteDatabase?.rawQuery("SELECT id, title, type,  time_spent_sec, question_cnt " +
-                "FROM core_psy_tests", null)
+        return sqLiteDatabase?.rawQuery("SELECT id, title_code, type, time_spent_sec, question_cnt " +
+                "FROM core_psy_test ORDER BY id", null)
     }
 
     /**
@@ -28,7 +28,8 @@ open class AppDBController(context: Context) {
      * @return Курсор, содержащий вопросы к выбранному тесту
      */
     fun select_questions_by_test(test_id: Int): Cursor? {
-        return sqLiteDatabase?.rawQuery("SELECT id, drawable_dest, test_id " +
-                "FROM psy_test_questions WHERE test_id = ?", Array(1){test_id.toString()})
+        return sqLiteDatabase?.rawQuery("SELECT title_code, drawable_dest, test_id " +
+                "FROM psy_test_question WHERE test_id = ? ORDER BY id",
+                Array(1){test_id.toString()})
     }
 }

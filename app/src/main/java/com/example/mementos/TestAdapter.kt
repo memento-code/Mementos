@@ -47,7 +47,7 @@ class TestAdapter(private val context: Context,
         val test = getItem(position) as Test
         countQuestionsTest.text = "${test.question_cnt} вопросов"
         timeTest.text = "${test.time_spent_sec / 60} минут"
-        titleTest.text = test.title
+        titleTest.text = test.title_code
 
         when (test.type){
             "questions" -> {

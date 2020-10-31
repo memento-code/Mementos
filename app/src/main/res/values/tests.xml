@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="test_test_1">Test - 1</string>
+    <string name="test_test_2">Test - 2</string>
+    <string name="test_test_3">Test - 3 Images</string>
+    <string name="anxiety_level">Уровень тревожности</string>
+</resources>

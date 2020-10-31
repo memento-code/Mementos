@@ -2,6 +2,7 @@ package com.example.mementos
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.ListView
 
 
@@ -18,10 +19,16 @@ class SelectTestActivity : AppCompatActivity() {
 
         with(allTests!!){
             while(moveToNext()){
+                val title_code = resources.getString(this@SelectTestActivity.resources.getIdentifier(
+                    getString(getColumnIndexOrThrow("title_code")),
+                    "string",
+                    this@SelectTestActivity.packageName
+                ))
+                Log.i("TEST", title_code)
                 listItems.add(
                     Test(
                         id = getInt(getColumnIndexOrThrow("id")),
-                        title = getString(getColumnIndexOrThrow("title")),
+                        title_code = title_code,
                         question_cnt = getInt(getColumnIndexOrThrow("question_cnt")),
                         time_spent_sec = getInt(getColumnIndexOrThrow("time_spent_sec")),
                         type = getString(getColumnIndexOrThrow("type"))

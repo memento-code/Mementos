@@ -25,7 +25,7 @@ class PsyQuestionActivity : AppCompatActivity(), View.OnClickListener {
         questions = controller.select_questions_by_test(test_id)!!
         questions.moveToFirst()
         questionTextView.text = getString(this.resources.getIdentifier(
-            "question_test_${questions.getInt(questions.getColumnIndexOrThrow("id"))}",
+            questions.getString(questions.getColumnIndexOrThrow("title_code")),
             "string",
             this.packageName
         ))
@@ -60,7 +60,7 @@ class PsyQuestionActivity : AppCompatActivity(), View.OnClickListener {
         if (!questions.isLast){
             questions.moveToNext()
             questionTextView.text = getString(this.resources.getIdentifier(
-                "question_test_${questions.getInt(questions.getColumnIndexOrThrow("id"))}",
+                questions.getString(questions.getColumnIndexOrThrow("title_code")),
                 "string",
                 this.packageName
             ))
