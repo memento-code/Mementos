@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
-import android.widget.ListView
 import kotlinx.android.synthetic.main.activity_psy_question.*
 
 class PsyQuestionActivity : AppCompatActivity(), View.OnClickListener {
@@ -55,7 +54,7 @@ class PsyQuestionActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    fun nextQuestion(choice: Int){
+    private fun nextQuestion(choice: Int){
         if (!questions.isLast){
             questions.moveToNext()
             points += pointsByButtons[choice]!!
@@ -74,7 +73,7 @@ class PsyQuestionActivity : AppCompatActivity(), View.OnClickListener {
      * Изменение значений для вопроса и кнопок. Поскольку в зависимости от вопроса кол-во вариантов
      * ответа может быть несколько, то лишние кнопки скрываются с экрана.
      */
-    fun updateViews(){
+    private fun updateViews(){
         questionTextView.text = getStringByCursor(questions, "title_code")
 
         val controller = AppDBController(this)
@@ -107,6 +106,7 @@ class PsyQuestionActivity : AppCompatActivity(), View.OnClickListener {
             }
         }
 
+        //Скрытие лишних кнопок, поскольку кол-во вариантов может быть разным
         for (j in buttons){
             val button = findViewById<Button>(j)
             button.visibility = View.GONE
