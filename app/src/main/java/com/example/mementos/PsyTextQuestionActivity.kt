@@ -66,7 +66,8 @@ class PsyTextQuestionActivity : AppCompatActivity(), View.OnClickListener {
             questions.close()
             Log.i("Question Activity", "close")
             val intent = Intent(this, PsyTestResultActivity::class.java)
-            intent.putExtra("", points)
+            intent.putExtra("points", points)
+            intent.putExtra("test_id", testId)
             startActivity(intent)
         }
 

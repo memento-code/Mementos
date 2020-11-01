@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!--Названия тестов для страницы выбора тестов -->
+    <!--Названия тестов для страницы выбора тестов. ID строк необходимо заносить в таблицу
+     core_psy_test в колонку title_code-->
     <string name="test_test_1">Test - 1</string>
     <string name="test_test_2">Test - 2</string>
     <string name="test_test_3">Test - 3 Images</string>
