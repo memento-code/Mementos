@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--Переводы текстов для вариантов ответа на вопросы. ID строк необходимо заносить в
+     таблицу psy_test_choices в колонку name_id-->
     <string name="yes_choice">Да</string>
     <string name="no_choice">Нет</string>
 </resources>

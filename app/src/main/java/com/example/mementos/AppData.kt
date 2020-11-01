@@ -7,9 +7,3 @@ data class Test(
     val time_spent_sec: Int,
     val type: String
 )
-
-data class Question(
-    val id: Int,
-    val test_id: Int,
-    val drawable_dest: String
-)

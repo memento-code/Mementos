@@ -10,7 +10,6 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.ContextCompat.startActivity
 
 
 /**
@@ -53,7 +52,7 @@ class TestAdapter(private val context: Context,
             "questions" -> {
                 typeImageTest.setImageResource(R.drawable.text_type_icon)
                 baseLayout.setOnClickListener {
-                    val intent = Intent(context, PsyQuestionActivity::class.java)
+                    val intent = Intent(context, PsyTextQuestionActivity::class.java)
                     intent.putExtra("id", test.id)
                     it.context.startActivity(intent)
                 }

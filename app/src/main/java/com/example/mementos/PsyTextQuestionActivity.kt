@@ -1,5 +1,6 @@
 package com.example.mementos
 
+import android.content.Intent
 import android.database.Cursor
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,7 +9,7 @@ import android.view.View
 import android.widget.Button
 import kotlinx.android.synthetic.main.activity_psy_question.*
 
-class PsyQuestionActivity : AppCompatActivity(), View.OnClickListener {
+class PsyTextQuestionActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var questions: Cursor
     private var pointsByButtons = mutableMapOf(1 to 0, 2 to 0, 3 to 0, 4 to 0)
     private var testId= 0
@@ -26,7 +27,7 @@ class PsyQuestionActivity : AppCompatActivity(), View.OnClickListener {
         buttonChoice4.setOnClickListener(this)
 
         val controller = AppDBController(this)
-        questions = controller.select_questions_by_test(testId)!!
+        questions = controller.selectQuestionsByTest(testId)!!
         questions.moveToFirst()
         updateViews()
     }
@@ -64,7 +65,9 @@ class PsyQuestionActivity : AppCompatActivity(), View.OnClickListener {
         else {
             questions.close()
             Log.i("Question Activity", "close")
-            //TODO: Добавить переход на страницу с результатами
+            val intent = Intent(this, PsyTestResultActivity::class.java)
+            intent.putExtra("", points)
+            startActivity(intent)
         }
 
     }
@@ -77,7 +80,7 @@ class PsyQuestionActivity : AppCompatActivity(), View.OnClickListener {
         questionTextView.text = getStringByCursor(questions, "title_code")
 
         val controller = AppDBController(this)
-        val choices = controller.select_choices(testId, questions.getInt(questions.getColumnIndexOrThrow("id")))!!
+        val choices = controller.selectChoices(testId, questions.getInt(questions.getColumnIndexOrThrow("id")))!!
         val buttons = mutableListOf(R.id.buttonChoice1, R.id.buttonChoice2, R.id.buttonChoice3, R.id.buttonChoice4)
         while (choices.moveToNext()){
             when (choices.position){

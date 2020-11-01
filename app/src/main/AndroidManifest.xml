@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PsyQuestionActivity"></activity>
+        <activity android:name=".PsyTestResultActivity"></activity>
+        <activity android:name=".PsyTextQuestionActivity" />
         <activity
             android:name=".SelectTestActivity"
             android:label="@string/title_activity_choice_psy_test"

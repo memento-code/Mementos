@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Файл с результатами психологических тестов. Формат заполнения:
+     - *_title: заголовок
+     - *_text: описание результата-
+     ID строк необходио заносить в БД в таблицу psy_test_result-->
+    <string name="anxiety_ext_level_title">Экстремальный уровень тревожности</string>
+    <string name="anxiety_ext_level_text">123</string>
+    <string name="anxiety_high_level_title">Высокий уровень тревожности</string>
+    <string name="anxiety_high_level_text">123</string>
+    <string name="anxiety_avg_h_level_title">Средний уровень тревоги с тенденцией к высокому</string>
+    <string name="anxiety_avg_h_level_text">123</string>
+    <string name="anxiety_avg_m_level_title">Средний уровень тревоги с тенденцией к низкому</string>
+    <string name="anxiety_avg_m_level_text">123</string>
+    <string name="anxiety_min_level_title">Низкий уровень тревожности</string>
+    <string name="anxiety_min_level_text">123</string>
+</resources>
